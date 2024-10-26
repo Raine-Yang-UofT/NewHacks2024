@@ -1,0 +1,24 @@
+.sidebar {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .sidebar-item {
+    background-color: #d3d3d3;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .large-box {
+    height: 50px;
+  }
+  
+  .small-box {
+    height: 20px;
+  }
+  
