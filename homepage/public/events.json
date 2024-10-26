@@ -1,0 +1,62 @@
+[
+    {
+        "TimeStamp": 1234.56,
+        "Source": { "name": "PlayerCharacter" },
+        "EventType": "HealthChange",
+        "Description": "Player took damage, health reduced.",
+        "EventData": {
+            "PreviousHealth": 100,
+            "CurrentHealth": 75,
+            "DamageTaken": 25,
+            "IsCriticalHit": true
+        }
+    },
+    {
+        "TimeStamp": 1236.78,
+        "Source": { "name": "PlayerCharacter" },
+        "EventType": "HealthChange",
+        "Description": "Player healed, health increased.",
+        "EventData": {
+            "PreviousHealth": 75,
+            "CurrentHealth": 95,
+            "DamageTaken": -20,
+            "IsCriticalHit": false
+        }
+    },
+    {
+        "TimeStamp": 1240.01,
+        "Source": { "name": "EnemyCharacter" },
+        "EventType": "Attack",
+        "Description": "Enemy attacked player.",
+        "EventData": {
+            "PreviousHealth": 95,
+            "CurrentHealth": 70,
+            "DamageTaken": 25,
+            "IsCriticalHit": true
+        }
+    },
+    {
+        "TimeStamp": 1245.22,
+        "Source": { "name": "PlayerCharacter" },
+        "EventType": "HealthChange",
+        "Description": "Player received healing.",
+        "EventData": {
+            "PreviousHealth": 70,
+            "CurrentHealth": 90,
+            "DamageTaken": -20,
+            "IsCriticalHit": false
+        }
+    },
+    {
+        "TimeStamp": 1250.45,
+        "Source": { "name": "Trap" },
+        "EventType": "Damage",
+        "Description": "Player took trap damage.",
+        "EventData": {
+            "PreviousHealth": 90,
+            "CurrentHealth": 60,
+            "DamageTaken": 30,
+            "IsCriticalHit": false
+        }
+    }
+]
