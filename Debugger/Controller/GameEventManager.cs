@@ -13,7 +13,8 @@ public class GameEventManager : MonoBehaviour {
     public List<IEventObserver> observers = new List<IEventObserver>();
     
     // record last event received
-    public GameEventBase lastEvent;
+    private string lastEventSource;
+    private int lastEventTimeStamp;
 
     // singleton constructor
     private void Awake() {
@@ -32,13 +33,17 @@ public class GameEventManager : MonoBehaviour {
         gameEvent.ExecuteEvent();
 
         // filter out same event from same source within 1 second
-        if (lastEvent != null && String.Equals(lastEvent.Source.name, gameEvent.Source.name)
-            && lastEvent.TimeStamp == gameEvent.TimeStamp) {
-            lastEvent = gameEvent;
+        if (lastEventSource != null 
+                && lastEventTimeStamp != 0
+                && String.Equals(lastEventSource, gameEvent.Source.name)
+                && lastEventTimeStamp == gameEvent.TimeStamp) {
+            lastEventSource = gameEvent.Source.name;
+            lastEventTimeStamp = gameEvent.TimeStamp;
             return;
         }
 
-        lastEvent = gameEvent;
+        lastEventSource = gameEvent.Source.name;
+        lastEventTimeStamp = gameEvent.TimeStamp;
 
         foreach (IEventObserver observer in observers) {
             observer.OnEventUpdate(gameEvent);
