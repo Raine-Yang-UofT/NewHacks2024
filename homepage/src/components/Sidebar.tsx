@@ -27,7 +27,7 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 h-full w-64 bg-gray-800 text-white p-4 overflow-y-auto">
+    <div className="bg-gray-800 text-white h-full">
       <h2 className="text-xl font-semibold mb-4">Event Sidebar</h2>
       {events.map((event, index) => (
         <div key={index} className="mb-4">
