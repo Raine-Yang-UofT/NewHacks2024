@@ -1,0 +1,26 @@
+﻿eventConfig:
+  - name: BulletHitBreakpoint
+    type: Breakpoint
+    description: Bullet hit enemy
+    properties:
+      - name: targetEnemy
+        type: Enemy
+      - name: bullet
+        type: Bullet
+    condition: "targetEnemy.currentHealth < 10"
+  - name: HealthChangeEvent
+    type: Event
+    description: Health changed
+    properties:
+      - name: previousHealth
+        type: int
+      - name: currentHealth
+        type: int
+  - name: BulletHitEvent
+    type: Event
+    description: Bullet hits an enemy
+    properties:
+      - name: bullet
+        type: Bullet
+      - name: targetEnemy
+        type: Enemy

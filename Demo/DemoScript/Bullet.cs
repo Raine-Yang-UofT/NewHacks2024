@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         // Check if it hits an enemy
-        GameEventManager.Instance.AddGameEvent(new BulletHitBreakpoint(collision.collider.GetComponent<Enemy>(), this));
+        //GameEventManager.Instance.AddGameEvent(new BulletHitBreakpoint(collision.collider.GetComponent<Enemy>(), this));
         if (collision.collider.CompareTag("Enemy")) {
             Enemy enemy = collision.collider.GetComponent<Enemy>();
             if (enemy != null) {
