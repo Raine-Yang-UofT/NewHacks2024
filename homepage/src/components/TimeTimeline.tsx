@@ -18,7 +18,7 @@ const timelineData = [
 
 export default function TimeTimeline() {
   return (
-    <div className="absolute left-0 flex justify-center">
+    <div className="justify-contents-left">
       <Timeline>
         {timelineData.map((entry, index) => (
           <TimelineItem key={index}>
