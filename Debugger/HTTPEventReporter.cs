@@ -5,7 +5,8 @@ using UnityEngine.Networking;
 
 public class HTTPEventReporter : MonoBehaviour, IEventReporter
 {
-    private string apiUrl = "http://localhost:3000/api/debug"; // Update URL based on your API endpoint
+    private string apiUrl = "http://localhost:4000/api/debug"; // Update URL based on your API endpoint
+
 
     public void OnEventUpdate(GameEventBase gameEvent) {
         HTTPEventSender.Instance.SendEvent(gameEvent, apiUrl);

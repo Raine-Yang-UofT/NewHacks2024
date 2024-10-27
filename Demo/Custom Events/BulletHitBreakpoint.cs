@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletHitBreakpoint : BreakpointBase {
     
     public override string EventType => "BulletHit";
-    public override string Description => $"Bullet hit enemy: {targetEnemy.name}";
+    public override string Description => $"Bullet hit enemy";
 
     private Enemy targetEnemy;
     private Bullet bullet;

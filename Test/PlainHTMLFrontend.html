@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugger Updates</title>
+</head>
+<body>
+    <h1>Debugger Updates</h1>
+    <div id="updates"></div>
+
+    <script>
+        // Create EventSource connection to server
+        const eventSource = new EventSource('http://localhost:4000/api/updates');
+
+        eventSource.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            console.log("Update received:", data);
+
+            // Display new debug data
+            const updatesDiv = document.getElementById('updates');
+            const newEvent = document.createElement('p');
+            newEvent.innerText = `Event: ${data.EventType}, Description: ${data.Description}, Source: ${data.SourceName}`;
+            updatesDiv.appendChild(newEvent);
+        };
+
+        // Error handling
+        eventSource.onerror = (error) => {
+            console.error("SSE error:", error);
+        };
+    </script>
+</body>
+</html>
