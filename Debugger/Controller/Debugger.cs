@@ -25,7 +25,8 @@ public class Debugger : MonoBehaviour {
     private bool isPaused = false;
 
     public void Start() {
-        reporter = new HTTPEventReporter();
+        //reporter = new HTTPEventReporter();
+        reporter = new InFileReporter();
         GameEventManager.Instance.RegisterObserver(reporter);
     }
 

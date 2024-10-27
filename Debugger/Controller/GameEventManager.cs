@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class GameEventManager : MonoBehaviour {
     public static GameEventManager Instance { get { return _instance; } }
 
     public List<IEventObserver> observers = new List<IEventObserver>();
+    
+    // record last event received
+    public GameEventBase lastEvent;
 
     // singleton constructor
     private void Awake() {
@@ -26,6 +30,13 @@ public class GameEventManager : MonoBehaviour {
 
     public void AddGameEvent(GameEventBase gameEvent) {
         gameEvent.ExecuteEvent();
+
+        // filter out same event from same source within 1 second
+        if (lastEvent != null && String.Equals(lastEvent.Source.name, gameEvent.Source.name)
+            && lastEvent.TimeStamp == gameEvent.TimeStamp) {
+            return;
+        }
+
         foreach (IEventObserver observer in observers) {
             observer.OnEventUpdate(gameEvent);
         }

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public abstract class GameEventBase {
 
-    public float TimeStamp { get; set; }
+    public int TimeStamp { get; set; }
     public GameObject Source { get; set; }
 
     public abstract string EventType { get; }
     public abstract string Description { get; }
 
     public GameEventBase(GameObject source) {
-        TimeStamp = Time.realtimeSinceStartup;
+        TimeStamp = (int)Time.realtimeSinceStartup;
         Source = source;
     }
 
