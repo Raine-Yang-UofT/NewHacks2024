@@ -34,8 +34,11 @@ public class GameEventManager : MonoBehaviour {
         // filter out same event from same source within 1 second
         if (lastEvent != null && String.Equals(lastEvent.Source.name, gameEvent.Source.name)
             && lastEvent.TimeStamp == gameEvent.TimeStamp) {
+            lastEvent = gameEvent;
             return;
         }
+
+        lastEvent = gameEvent;
 
         foreach (IEventObserver observer in observers) {
             observer.OnEventUpdate(gameEvent);

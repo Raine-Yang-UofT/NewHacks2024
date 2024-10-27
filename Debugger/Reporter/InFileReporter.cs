@@ -18,6 +18,7 @@ public class InFileReporter : IEventReporter {
         gameEvents.Add(gameEvent);
         using (StreamWriter writer = new StreamWriter(filePath, true)) {
             writer.WriteLine($"Event: {gameEvent.EventType}");
+            writer.WriteLine($"Timestamp: {gameEvent.TimeStamp}");
             writer.WriteLine($"Description: {gameEvent.Description}");
             writer.WriteLine($"Source: {gameEvent.Source.name}");
             writer.WriteLine("Event Data:");

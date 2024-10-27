@@ -1,25 +1,29 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthChangeEvent : GameEventBase {
-    private float health;
-    private float change;
+public class HealthChangeEvent : GameEventBase
+{
+    public override string EventType => "HealthChangeEvent";
+    public override string Description => "Health changed";
+    public int previousHealth { get; private set; }
+    public int currentHealth { get; private set; }
 
-    public override string EventType => "HealthChange";
-    public override string Description => "Called when the player's health changes";
-
-    public HealthChangeEvent(GameObject source, float health, float change)
-        : base(source) {
-        this.health = health;
-        this.change = change;
+    public HealthChangeEvent(GameObject source
+        , int previoushealth
+        , int currenthealth
+    ) : base(source)
+    {
+        this.previousHealth = previoushealth;
+        this.currentHealth = currenthealth;
     }
 
-    public override Dictionary<string, object> GetEventData() {
+    public override Dictionary<string, object> GetEventData()
+    {
         return new Dictionary<string, object>
         {
-            { "health", health },
-            { "change", change }
+            { "previousHealth", previousHealth },
+            { "currentHealth", currentHealth },
         };
     }
 }
