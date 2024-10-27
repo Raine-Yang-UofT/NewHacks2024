@@ -1,25 +1,8 @@
 "use client";
 import React, { useState } from "react";
 
-const events = [
-  {
-    TimeStamp: 1234.56,
-    Source: {
-      name: "PlayerCharacter",
-    },
-    EventType: "HealthChange",
-    Description: "Player took damage, health reduced.",
-    EventData: {
-      PreviousHealth: 100,
-      CurrentHealth: 75,
-      DamageTaken: 25,
-      IsCriticalHit: true,
-    },
-  },
-  // Add more event data here as needed
-];
-
 const Sidebar: React.FC = () => {
+  const [events, setEvents] = useState<any[]>([]); // State to hold events data
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleContainer = (index: number) => {
