@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IEventReporter : IEventObserver {
-    public void DisplayReport();
+    public void DisplayReportEnd();
 }

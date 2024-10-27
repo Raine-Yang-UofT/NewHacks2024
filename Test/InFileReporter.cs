@@ -28,7 +28,7 @@ public class InFileReporter : IEventReporter {
         }
     }
 
-    public void DisplayReport() {
+    public void DisplayReportEnd() {
         using (StreamWriter writer = new StreamWriter(filePath, true)) {
             writer.WriteLine("=== End of Log ===");
         }

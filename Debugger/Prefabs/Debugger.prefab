@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6524212645682597807}
   - component: {fileID: 884612774369528232}
   - component: {fileID: 3157676445005089693}
+  - component: {fileID: -6258730445612480330}
   m_Layer: 0
   m_Name: Debugger
   m_TagString: Untagged
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa22dbac8d43ab34b85b365b96f87cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableBreakpoints: 1
 --- !u!114 &3157676445005089693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,5 +57,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b8a0abebae776346847a29a40af1247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6258730445612480330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699354668994797984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4afa98d1e304f4daa76b4416388385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

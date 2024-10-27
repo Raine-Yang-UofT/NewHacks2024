@@ -25,7 +25,7 @@ public class Debugger : MonoBehaviour {
     private bool isPaused = false;
 
     public void Start() {
-        reporter = new InFileReporter();
+        reporter = new HTTPEventReporter();
         GameEventManager.Instance.RegisterObserver(reporter);
     }
 
@@ -73,7 +73,6 @@ public class Debugger : MonoBehaviour {
     }
 
     private void OnApplicationQuit() {
-        Debug.Log("Terminating game, displaying report...");
-        reporter?.DisplayReport();
+        reporter?.DisplayReportEnd();
     }
 }
