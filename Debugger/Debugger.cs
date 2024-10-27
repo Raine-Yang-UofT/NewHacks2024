@@ -24,6 +24,11 @@ public class Debugger : MonoBehaviour {
     private float playSpeed = 1.0f;
     private bool isPaused = false;
 
+    public void Start() {
+        reporter = new InFileReporter();
+        GameEventManager.Instance.RegisterObserver(reporter);
+    }
+
     public void Pause() {
         isPaused = true;
         Time.timeScale = 0;
@@ -68,6 +73,7 @@ public class Debugger : MonoBehaviour {
     }
 
     private void OnApplicationQuit() {
+        Debug.Log("Terminating game, displaying report...");
         reporter?.DisplayReport();
     }
 }
