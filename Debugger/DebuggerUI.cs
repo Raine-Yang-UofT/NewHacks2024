@@ -11,7 +11,8 @@ public class DebuggerUI : MonoBehaviour {
     public Button resumeButton;
     public Button playByFrameButton;
     public Button playByIntervalButton;
-    public TMP_InputField intervalInputField;
+    public Slider intervalSlider;
+    public TMP_Text intervalValue;
     public Button setIntervalButton;
     public TMP_InputField scaleInputField;
     public Button setScaleButton;
@@ -26,11 +27,8 @@ public class DebuggerUI : MonoBehaviour {
     }
 
     private void SetInterval() {
-        if (float.TryParse(intervalInputField.text, out float intervalValue)) {
-            Debugger.Instance.SetInterval(intervalValue);
-        } else {
-            Debug.LogWarning("Invalid interval value entered.");
-        }
+        Debugger.Instance.SetInterval(intervalSlider.value);
+        intervalValue.text = intervalSlider.value.ToString("F1");
     }
 
     private void SetScale() {

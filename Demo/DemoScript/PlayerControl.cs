@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour {
         // Instantiate the bullet
         GameObject bullet = Instantiate(bulletPrefab, transform.position + transform.forward, Quaternion.identity);
         bullet.transform.forward = transform.forward; // Set the bullet's direction
-        GameEventManager.Instance.AddGameEvent(new FireBulletBreakpoint(this, bullet));
+        GameEventManager.Instance.AddGameEvent(new FireBulletBreakpoint(bullet, this, bullet.GetComponent<Bullet>()));
     }
 
     void Update() {

@@ -1,26 +1,29 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FireBulletBreakpoint : BreakpointBase
 {
-    public PlayerControl Player { get; private set; }
-    public GameObject Bullet { get; private set; }
+    public override string EventType => "FireBulletBreakpoint";
+    public override string Description => "Player fired a bullet";
+    public PlayerControl player { get; private set; }
+    public Bullet bullet { get; private set; }
 
-    public override string EventType => "FireBullet";
-    public override string Description => $"Player fired a bullet.";
-
-    public FireBulletBreakpoint(PlayerControl player, GameObject bullet) : base(player.gameObject) {
-        Player = player;
-        Bullet = bullet;
+    public FireBulletBreakpoint(GameObject source
+        , PlayerControl player
+        , Bullet bullet
+    ) : base(source)
+    {
+        this.player = player;
+        this.bullet = bullet;
     }
 
-    public override Dictionary<string, object> GetEventData() {
+    public override Dictionary<string, object> GetEventData()
+    {
         return new Dictionary<string, object>
         {
-            { "playerName", Player.name },
-            { "bulletPrefab", Bullet.name },
-            { "bulletPosition", Bullet.transform.position }
+            { "player", player },
+            { "bullet", bullet },
         };
     }
 }

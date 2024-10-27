@@ -16,11 +16,11 @@
         type: int
       - name: currentHealth
         type: int
-  - name: BulletHitEvent
-    type: Event
-    description: Bullet hits an enemy
+  - name: FireBulletBreakpoint
+    type: Breakpoint
+    description: Player fired a bullet
     properties:
+      - name: player
+        type: PlayerControl
       - name: bullet
         type: Bullet
-      - name: targetEnemy
-        type: Enemy
