@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 884612774369528232}
   - component: {fileID: 3157676445005089693}
   - component: {fileID: -6258730445612480330}
-  - component: {fileID: -1433041952458967285}
   m_Layer: 0
   m_Name: Debugger
   m_TagString: Untagged
@@ -72,19 +71,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4afa98d1e304f4daa76b4416388385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1433041952458967285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699354668994797984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dd4ad5ca355e8c41b06a8982d7aa006, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yamlFilePath: C:/University of Toronto/Projects/Game Development Project/NewHacks
-    2024/Assets\Scenes/NewHacks2024/Debugger/Utils/EventsConfig.yaml
-  outputDirectory: C:/University of Toronto/Projects/Game Development Project/NewHacks
-    2024/Assets\Scenes/NewHacks2024/Demo/Custom Events
