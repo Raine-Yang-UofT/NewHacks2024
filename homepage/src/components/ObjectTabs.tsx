@@ -1,5 +1,6 @@
-"use client";
-import React, { useState, useEffect } from 'react';
+'use client';
+import * as React from 'react';
+import TimeTimeline, { DisplayEvents } from './TimeTimeline';
 
 // Define the structure for event data key-value pairs
 interface EventDataItem {
@@ -17,17 +18,19 @@ interface GameEventData {
 }
 
 export default function ObjectTabs() {
-  const [eventData, setEventData] = useState<GameEventData[]>([]);
-  const [activeTab, setActiveTab] = useState<number | null>(null);
+  const [eventData, setEventData] = React.useState<GameEventData[]>([]);
+  const [activeTab, setActiveTab] = React.useState<number | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const fetchEvents = async () => {
       try {
         const response = await fetch("http://localhost:4000/api/debug");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
+
         const data = await response.json();
+        // console.log(data);
         
         // If data is an array, use it directly; if it's a single object, wrap it in an array
         const newData = Array.isArray(data) ? data : [data];
@@ -77,25 +80,21 @@ export default function ObjectTabs() {
   return (
     <div>
       <div className="flex bg-gray-200 p-2 gap-2">
-        {eventData.map((event, index) => (
-          <div
-            key={index}
-            onClick={() => handleTabClick(index)}
-            className={`
-              cursor-pointer 
-              w-auto min-w-32 px-3 h-8 
-              rounded-md 
-              flex items-center justify-center 
-              transition-colors
-              ${activeTab === index 
-                ? 'bg-blue-500 text-white' 
-                : 'bg-gray-300 text-black hover:bg-gray-400'
-              }
-            `}
-          >
-            <span className="text-sm truncate">
-              {event.SourceName} - {event.EventType}
-            </span>
+        <div className='mt-5'>
+          <TimeTimeline />  
+        </div>
+        {eventData.map((item, index) => (
+          <div>
+            <div
+              key={index}
+              className="bg-gray-300 w-32 h-8 rounded-md flex items-center justify-center text-black"
+            >
+              {item.Description}
+            </div>
+            <div className='flex'>
+
+              <DisplayEvents/>
+            </div>
           </div>
         ))}
       </div>
