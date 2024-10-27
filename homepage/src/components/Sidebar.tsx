@@ -1,27 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const Sidebar: React.FC = () => {
   const [events, setEvents] = useState<any[]>([]); // State to hold events data
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  // Fetch data from backend on component mount
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch("http://localhost:4000/api/debug"); // Update with your actual API endpoint
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        setEvents(data); // Update state with fetched data
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      }
-    };
-
-    fetchEvents();
-  }, []); // Empty dependency array means this runs once when the component mounts
 
   const toggleContainer = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);

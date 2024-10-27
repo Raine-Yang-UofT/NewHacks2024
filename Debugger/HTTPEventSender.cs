@@ -19,12 +19,20 @@ public class HTTPEventSender : MonoBehaviour {
         }
     }
 
+    private Queue<string> eventQueue = new Queue<string>();
+    private bool isSending = false;
+
     public void SendEvent(GameEventBase gameEvent, string api) {
         // parse data to json
         GameEventSerializable eventSerializable = new GameEventSerializable(gameEvent);
         string jsonData = JsonConvert.SerializeObject(eventSerializable);
         Debug.Log("Sending event data: " + jsonData);
-        StartCoroutine(PostEventData(jsonData, api));
+        eventQueue.Enqueue(jsonData);
+
+        // Start sending if not already sending
+        if (!isSending) {
+            StartCoroutine(PostEventData(eventQueue.Dequeue(), api));
+        }
     }
 
     private IEnumerator PostEventData(string jsonData, string api) {
